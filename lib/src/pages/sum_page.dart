@@ -28,15 +28,30 @@ class _SumPageState extends State<SumPage> {
                     ],
                 ),
             ),
-            floatingActionButton: FloatingActionButton(
-                child: Icon(Icons.add, size: 35,),
-                onPressed: (){
-					setState(() {
-						_sum ++;	
-					});
-                },
-            ),
+            floatingActionButton: _buttonsCreate(),
             floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat
         );
     }
+
+	Widget _buttonsCreate(){
+		return Row(
+			mainAxisAlignment: MainAxisAlignment.center,
+			children: <Widget>[
+				FloatingActionButton(
+					child: Icon(Icons.refresh,size: 35,),
+					onPressed: (){setState(() {_sum = 0; });},
+				),
+				SizedBox(width: 10.0,),
+				FloatingActionButton(
+					child: Icon(Icons.arrow_downward,size: 35,),
+					onPressed: (){setState(() {_sum --;	});},
+				),
+				SizedBox(width: 10.0,),
+				FloatingActionButton(
+					child: Icon(Icons.arrow_upward,size: 35,),
+					onPressed: (){setState(() {_sum ++; });},
+				),
+			],
+		);
+	}
 }
