@@ -39,19 +39,24 @@ class _SumPageState extends State<SumPage> {
 			children: <Widget>[
 				FloatingActionButton(
 					child: Icon(Icons.refresh,size: 35,),
-					onPressed: (){setState(() {_sum = 0; });},
+					onPressed: _zero,
 				),
 				SizedBox(width: 10.0,),
 				FloatingActionButton(
 					child: Icon(Icons.arrow_downward,size: 35,),
-					onPressed: (){setState(() {_sum --;	});},
+					onPressed: _less,
 				),
 				SizedBox(width: 10.0,),
 				FloatingActionButton(
 					child: Icon(Icons.arrow_upward,size: 35,),
-					onPressed: (){setState(() {_sum ++; });},
+					onPressed: _add,
 				),
 			],
 		);
 	}
+
+	void _add() => setState(() => _sum++ );
+	void _less() => setState(() => _sum -- );
+	void _zero() => setState(() =>_sum = 0 );
+	
 }
